@@ -43,20 +43,20 @@ enum _AnalogAcquisitionTime
 extern "C" unsigned int PINCOUNT_fn();
 #endif
 #define PINS_COUNT           (PINCOUNT_fn())
-#define NUM_DIGITAL_PINS     (21u)
-#define NUM_ANALOG_INPUTS    (8u)
+#define NUM_DIGITAL_PINS     (32u)
+#define NUM_ANALOG_INPUTS    (7u)
 #define NUM_ANALOG_OUTPUTS   (0u)
 
 extern PinName digitalPinToPinName(pin_size_t P);
 
 // LEDs
 // ----
-#define PIN_LED     (13u)
+#define PIN_LED     (3u)
 #define LED_BUILTIN PIN_LED
-#define LEDR        (22u)
-#define LEDG        (23u)
-#define LEDB        (24u)
-#define LED_PWR     (25u)
+#define LEDR        (3u)
+#define LEDG        (3u)
+#define LEDB        (3u)
+#define LED_PWR     (3u)
 
 // Analog pins
 // -----------
@@ -67,7 +67,7 @@ extern PinName digitalPinToPinName(pin_size_t P);
 #define PIN_A4 (18u)
 #define PIN_A5 (19u)
 #define PIN_A6 (20u)
-#define PIN_A7 (21u)
+#define PIN_A7 (0xff)
 static const uint8_t A0  = PIN_A0;
 static const uint8_t A1  = PIN_A1;
 static const uint8_t A2  = PIN_A2;
@@ -76,7 +76,7 @@ static const uint8_t A4  = PIN_A4;
 static const uint8_t A5  = PIN_A5;
 static const uint8_t A6  = PIN_A6;
 static const uint8_t A7  = PIN_A7;
-#define ADC_RESOLUTION 12
+#define ADC_RESOLUTION 14
 
 // Digital pins
 // -----------
@@ -99,14 +99,14 @@ static const uint8_t A7  = PIN_A7;
  * Serial interfaces
  */
 // Serial (EDBG)
-#define PIN_SERIAL_RX (1ul)
-#define PIN_SERIAL_TX (0ul)
+#define PIN_SERIAL_RX (0ul)
+#define PIN_SERIAL_TX (1ul)
 
 // SPI
-#define PIN_SPI_MISO  (12u)
-#define PIN_SPI_MOSI  (11u)
-#define PIN_SPI_SCK   (13u)
-#define PIN_SPI_SS    (10u)
+#define PIN_SPI_MISO  (23u)
+#define PIN_SPI_MOSI  (24u)
+#define PIN_SPI_SCK   (25u)
+#define PIN_SPI_SS    (5u)
 
 static const uint8_t SS   = PIN_SPI_SS;   // SPI Slave SS not used. Set here only for reference.
 static const uint8_t MOSI = PIN_SPI_MOSI;
@@ -114,8 +114,8 @@ static const uint8_t MISO = PIN_SPI_MISO;
 static const uint8_t SCK  = PIN_SPI_SCK;
 
 // Wire
-#define PIN_WIRE_SDA        (18u)
-#define PIN_WIRE_SCL        (19u)
+#define PIN_WIRE_SDA        (21u)
+#define PIN_WIRE_SCL        (22u)
 
 #define PIN_WIRE_SDA1       (30u)
 #define PIN_WIRE_SCL1       (31u)
@@ -146,8 +146,8 @@ static const uint8_t SCK  = PIN_SPI_SCK;
 //
 // SERIAL_PORT_HARDWARE_OPEN  Hardware serial ports which are open for use.  Their RX & TX
 //                            pins are NOT connected to anything by default.
-#define SERIAL_PORT_USBVIRTUAL      SerialUSB
-#define SERIAL_PORT_MONITOR         SerialUSB
+//#define SERIAL_PORT_USBVIRTUAL      SerialUSB
+//#define SERIAL_PORT_MONITOR         SerialUSB
 #define SERIAL_PORT_HARDWARE        Serial1
 #define SERIAL_PORT_HARDWARE_OPEN   Serial1
 
@@ -165,7 +165,7 @@ static const uint8_t SCK  = PIN_SPI_SCK;
 
 #define DFU_MAGIC_SERIAL_ONLY_RESET   0xb0
 
-#define WIRE_HOWMANY		2
+#define WIRE_HOWMANY		1
 
 #define I2C_SDA				(digitalPinToPinName(PIN_WIRE_SDA))
 #define I2C_SCL				(digitalPinToPinName(PIN_WIRE_SCL))
